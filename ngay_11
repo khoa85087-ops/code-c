@@ -1,0 +1,21 @@
+#include "stdio.h"
+int main (){
+	int n;int i;int j;
+	printf ("nhap so bac cua ma tran :");
+	scanf ("%d",&n);
+	int a[n][n];
+	for (i=0;i<n;i++){
+		for (j=0;j<n;j++){
+			printf ("nhap vao a[%d][%d]:",i,j);
+			scanf ("%d",&a[i][j]);
+		}
+	}
+	for (j=0;j<n;j++){
+		for (i=n-1;i>=0;i--){
+			printf (" %d ",a[i][j]);
+			printf ("==%d%d==",i,j);
+		}
+		printf("\n");
+	}
+	
+}

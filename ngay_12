@@ -1,0 +1,134 @@
+#include "stdio.h"
+void in_mang(int a[],int n);
+int max_arr(int a[],int n);
+int min_arr(int a[],int n);
+int tong_arr(int a[],int n);
+void so_chan(int a[],int n);
+void sap_xep(int a[],int n);
+void vi_tri (int a[],int n,int x);
+int main(){
+	int n;
+	int i;int x;int phim ;int flag=0;
+	int max_ar;int min_ar;int tong;
+again:
+	printf ("nhap vao so phan tu  mang :");
+	scanf ("%d",&n);
+	if (n<=0||n>100) goto again ;
+	int a[n];
+	printf ("nhap vao cac phan tu mang :\n");
+	for (i=0;i<n;i++){
+		printf ("a[%d]:",i);
+		scanf ("%d",&a[i]);
+		
+	}
+	back:
+	printf ("\nnhap vao chuc nang :");
+	printf ("\n1.IN mang");
+	printf ("\n2.IN so lon nhat ");
+	printf ("\n3.IN so nho nhat");
+	printf ("\n4.IN tinh tong");
+	printf ("\n5.IN ra co bao nhieu so chan");
+	printf ("\n6.Sap xep tu nho den lon");
+	printf ("\n7.tim vi tri so x trong mang ");
+	printf ("\n0.thoat\n ");
+	scanf ("%d",&phim);
+	switch (phim){
+		case 1:
+			in_mang(a,n);
+			break ;
+		case 2:
+			max_ar=max_arr(a,n);
+			printf ("%d",max_ar);
+			break;
+		case 3:	
+			min_ar=min_arr(a,n);
+			printf ("%d",min_ar);
+			break;
+		case 4:
+			tong=tong_arr(a,n);
+			printf ("%d",tong);
+			break;
+		case 5:
+			 so_chan(a,n);
+			break;
+		case 6:
+			sap_xep(a,n);
+			break;
+		case 7:
+			printf ("\nnhap vao gia tri can tim :");
+			scanf ("%d",&x);
+			vi_tri(a,n,x);
+			break;
+		case 0:
+			flag =1;
+			break;
+		default:
+			printf ("khong hop le ");
+	
+	}
+	if (flag==0) goto back ;
+}
+void in_mang(int a[],int n){
+	int i;
+	for (i=0;i<n;i++){
+		printf ("%d",a[i]);
+	}
+}
+int max_arr(int a[],int n){
+	int i;
+	int max_a=a[0];
+	for (i=1;i<n;i++){
+		if (max_a<a[i]){
+			max_a=a[i];
+		}
+	}
+	return max_a;
+}
+int min_arr(int a[],int n){
+	int i;
+	int min_a=a[0];
+	for (i=1;i<n;i++){
+		if (min_a>a[i]){
+			min_a=a[i];
+		}
+	}
+	return min_a;
+}
+int tong_arr(int a[],int n){
+	int i; int s=0;
+	for (i=0;i<n;i++){
+		s=s+a[i];
+	}
+	return s;
+}
+void so_chan(int a[],int n){
+	int i;
+	for (i=0;i<n;i++){
+		if (a[i]%2==0){
+			printf ("%d",a[i]);
+		}
+	}
+}
+void sap_xep(int a[],int n){
+	int i;int j;
+	for (i=0;i<n-1;i++){
+		for (j=i+1;j<n;j++){
+		if (a[i]>a[j]){
+			int change =a[i];
+			a[i]=a[j];
+			a[j]=change;
+		}	
+		}
+	}
+	for (i=0;i<n;i++){
+		printf ("%d ",a[i]);
+	}
+}
+void vi_tri (int a[],int n,int x){
+	int i;
+	for (i=0;i<n;i++){
+		if (a[i]==x){
+			printf ("%d",i);
+		}
+	}
+}

@@ -20,6 +20,11 @@ int main (){
 				else {
 					if (ngay>28) check ++;
 				}	
+
+
+
+
+			fff
 			break;			
 		
 					
